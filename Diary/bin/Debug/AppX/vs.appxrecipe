@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>ZZF_PC</Machine>
+    <WindowsUser>NitefullWind</WindowsUser>
+    <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <PackageIdentityName>d091f879-a317-4372-9810-5074466c8424</PackageIdentityName>
+    <IntermediateOutputPath>E:\windowsAPP\Diary\Diary\obj\Debug\</IntermediateOutputPath>
+    <RegisteredManifestChecksum>C4219FC2877759C5AED31857CB088368A9D4175FF6DB48C81313B19937EC0630</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>d091f879-a317-4372-9810-5074466c8424_1.0.0.0_neutral__07cngzs7qdxk4</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>d091f879-a317-4372-9810-5074466c8424_07cngzs7qdxk4!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>d091f879-a317-4372-9810-5074466c8424</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=NitefullWind</RegisteredPackagePublisher>
+    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+    <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="E:\windowsAPP\Diary\Diary\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2014-12-02T15:57:37.297</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\bin\Debug\Diary.exe">
+      <PackagePath>Diary.exe</PackagePath>
+      <Modified>2014-12-02T16:45:34.844</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\Assets\Images\LoginBackground.jpg">
+      <PackagePath>Assets\Images\LoginBackground.jpg</PackagePath>
+      <Modified>2014-12-02T15:08:13.499</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\Assets\Logo.scale-100.png">
+      <PackagePath>Assets\Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-09-24T16:00:42.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\Assets\SmallLogo.scale-100.png">
+      <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-09-24T16:00:42.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\Assets\SplashScreen.scale-100.png">
+      <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-09-24T16:00:42.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\Assets\StoreLogo.scale-100.png">
+      <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-09-24T16:00:42.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\bin\Debug\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
+      <Modified>2014-12-02T15:57:35.286</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\bin\Debug\MainPage.xbf">
+      <PackagePath>MainPage.xbf</PackagePath>
+      <Modified>2014-12-02T16:45:34.396</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\bin\Debug\Diary.xr.xml">
+      <PackagePath>Diary.xr.xml</PackagePath>
+      <Modified>2014-12-02T16:45:34.305</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\bin\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <Modified>2014-12-02T15:57:36.407</Modified>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

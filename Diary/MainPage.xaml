@@ -1,0 +1,56 @@
+﻿<Page
+    x:Class="Diary.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Diary"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <!--文本框样式-->
+        <Style TargetType="TextBox">
+            <Setter Property="BorderThickness" Value="3"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="BorderBrush">
+                <Setter.Value>
+                    <LinearGradientBrush  StartPoint="0,1" EndPoint="0,0">
+                        <GradientStop Color="OrangeRed" Offset="0"/>
+                        <GradientStop Color="#FFFFCB97" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <!--<Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border CornerRadius="10,10,10,10" BorderBrush="Silver" BorderThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>-->
+        </Style>
+    </Page.Resources>
+    
+    <Grid x:Name="loginGrid">
+        <Grid.Background>
+            <ImageBrush ImageSource="Assets/Images/LoginBackground.jpg"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="285*"/>
+            <RowDefinition Height="52*"/>
+            <RowDefinition Height="51*"/>
+            <RowDefinition Height="380*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="225*"/>
+            <ColumnDefinition Width="318*"/>
+            <ColumnDefinition Width="225*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Name="user_TextBlock" VerticalAlignment="Center" Margin="0,0,383,0"  Text="用户名：" FontSize="35" Grid.Row="1" Grid.Column="1" Height="42"/>
+        <TextBox Name="user_TextBox" Text="默雨暮风" Grid.Row="1" Grid.Column="1"/>
+        <TextBlock Name="psw_TextBlock" VerticalAlignment="Center" Margin="0,0,383,0"  Text="密码：" FontSize="35" Grid.Row="2" Grid.Column="1" Height="42"/>
+        <TextBox Name="psw_TextBox" Text="123456789"  Grid.Row="2" Grid.Column="1"/>
+    </Grid>
+</Page>

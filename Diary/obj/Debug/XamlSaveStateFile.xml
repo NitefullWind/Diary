@@ -1,5 +1,6 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
-    <LocalAssembly PathName="e:\windowsapp\diary\diary\obj\debug\intermediatexaml\diary.exe" HashGuid="4ff83755-d980-66ee-530a-664c1e12bbc6" />
+    <LocalAssembly PathName="e:\windowsapp\diary\diary\obj\debug\intermediatexaml\diary.exe" HashGuid="a9614e58-c64a-0900-a69b-bc7f04f8a7b7" />
+    <ReferenceAssembly PathName="e:\windowsapp\diary\packages\newtonsoft.json.6.0.6\lib\netcore45\newtonsoft.json.dll" HashGuid="63116148-54c9-33e9-c28b-753c429e654f" />
   </ReferenceAssemblyList>
 </XamlCompilerSaveState>

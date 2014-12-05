@@ -124,17 +124,19 @@ namespace Diary.Diary_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[4];
-            _typeNameTable[0] = "Diary.DetailPage";
+            _typeNameTable = new string[5];
+            _typeNameTable[0] = "Diary.ChangeUserInfoPage";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[3] = "Diary.MainPage";
+            _typeNameTable[3] = "Diary.DetailPage";
+            _typeNameTable[4] = "Diary.MainPage";
 
-            _typeTable = new global::System.Type[4];
-            _typeTable[0] = typeof(global::Diary.DetailPage);
+            _typeTable = new global::System.Type[5];
+            _typeTable[0] = typeof(global::Diary.ChangeUserInfoPage);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[3] = typeof(global::Diary.MainPage);
+            _typeTable[3] = typeof(global::Diary.DetailPage);
+            _typeTable[4] = typeof(global::Diary.MainPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -169,8 +171,9 @@ namespace Diary.Diary_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_DetailPage() { return new global::Diary.DetailPage(); }
-        private object Activate_3_MainPage() { return new global::Diary.MainPage(); }
+        private object Activate_0_ChangeUserInfoPage() { return new global::Diary.ChangeUserInfoPage(); }
+        private object Activate_3_DetailPage() { return new global::Diary.DetailPage(); }
+        private object Activate_4_MainPage() { return new global::Diary.MainPage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -182,9 +185,9 @@ namespace Diary.Diary_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  Diary.DetailPage
+            case 0:   //  Diary.ChangeUserInfoPage
                 userType = new global::Diary.Diary_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_0_DetailPage;
+                userType.Activator = Activate_0_ChangeUserInfoPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -197,9 +200,16 @@ namespace Diary.Diary_XamlTypeInfo
                 xamlType = new global::Diary.Diary_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 3:   //  Diary.MainPage
+            case 3:   //  Diary.DetailPage
                 userType = new global::Diary.Diary_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_3_MainPage;
+                userType.Activator = Activate_3_DetailPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 4:   //  Diary.MainPage
+                userType = new global::Diary.Diary_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_4_MainPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;

@@ -1,12 +1,16 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text;
+using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -39,7 +43,7 @@ namespace Diary
         /// 以打开特定文件等情况下使用其他入口点。
         /// </summary>
         /// <param name="e">有关启动请求和过程的详细信息。</param>
-        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
 
 #if DEBUG
@@ -76,7 +80,19 @@ namespace Diary
                 // 当未还原导航堆栈时，导航到第一页，
                 // 并通过将所需信息作为导航参数传入来配置
                 // 参数
-                rootFrame.Navigate(typeof(MainPage), e.Arguments);
+
+                //获得App的可以访问的私有空间
+                var localFolder = ApplicationData.Current.LocalFolder;
+                StorageFile fileInfo = await localFolder.TryGetItemAsync("UserData.json") as StorageFile;
+
+                if(fileInfo==null)
+                {
+                    rootFrame.Navigate(typeof(ChangeUserInfoPage), e.Arguments);
+                }
+                else
+                {
+                    rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                }
             }
             // 确保当前窗口处于活动状态
             Window.Current.Activate();

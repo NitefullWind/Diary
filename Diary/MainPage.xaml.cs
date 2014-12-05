@@ -28,49 +28,47 @@ namespace Diary
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private dynamic usersDiary;
         public MainPage()
         {
             this.InitializeComponent();
+            getStream();
         }
 
-        private async void Login_Btn_Click(object sender, RoutedEventArgs e)
+        private async void getStream()
         {
             //获得App的可以访问的私有空间
             StorageFolder localFolder = ApplicationData.Current.LocalFolder;
-            //System.IO.Directory.Exisit(localFolder);
             //获得文件的操作流
-            Stream stream = await localFolder.OpenStreamForReadAsync(user_TextBox.Text +".json");
+            Stream stream = await localFolder.OpenStreamForReadAsync("UserData.json");
             //插管子读取
-            StreamReader json = new StreamReader(stream, Encoding.UTF8);
+            StreamReader sr = new StreamReader(stream, Encoding.GetEncoding("UTF-8"));
             //把二进制流转换成文本
-            string users = await json.ReadToEndAsync();
+            string users = await sr.ReadToEndAsync();
             //将数组解析成对象
-            dynamic usersDiary = JsonConvert.DeserializeObject(users);
-            string userPassword = usersDiary.Password;
-            if(user_TextBox.Text==""||psw_TextBox.Password=="")
+            usersDiary = JsonConvert.DeserializeObject(users);
+
+            //设置欢迎字符
+            user_TextBlock.Text = "您好，" + usersDiary.UserName;
+            sr.Dispose();
+            stream.Dispose();
+        }
+        private void Login_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            if(psw_TextBox.Password=="")
             {
-                MessageDialog msg = new MessageDialog(" 用户名或密码不能为空！");
-                msg.Title = "警告！";
-                psw_TextBox.Password = "";
-                var msginfo = await msg.ShowAsync();
+                wrong_TextBlock.Text = "**密码不能为空**";
             }
-            else if (psw_TextBox.Password.Equals(userPassword))
+            else if (psw_TextBox.Password.Equals(usersDiary.Password.ToString()))
             {
+                wrong_TextBlock.Text = "";
                 Frame.Navigate(typeof(DetailPage), usersDiary);
             }
             else
             {
-                MessageDialog msg = new MessageDialog(" 用户名或密码输入错误!");
-                msg.Title = "警告！";
                 psw_TextBox.Password = "";
-                var msginfo = await msg.ShowAsync();
+                wrong_TextBlock.Text = "**密码错误**";
             }
         }
     }
-
-    //public class user
-    //{
-    //    public string UserName { get; set; }
-    //    public string Password { get; set; }
-    //} 
 }

@@ -20,13 +20,13 @@
     <AppXManifest Include="E:\windowsAPP\Diary\Diary\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2014-12-03T11:56:17.406</Modified>
+      <Modified>2014-12-05T11:38:48.023</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\bin\Debug\Diary.exe">
       <PackagePath>Diary.exe</PackagePath>
-      <Modified>2014-12-03T12:44:53.027</Modified>
+      <Modified>2014-12-05T16:50:31.564</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\windowsAPP\Diary\packages\Newtonsoft.Json.6.0.6\lib\netcore45\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
@@ -64,21 +64,25 @@
       <PackagePath>App.xbf</PackagePath>
       <Modified>2014-12-02T15:57:35.286</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\bin\Debug\ChangeUserInfoPage.xbf">
+      <PackagePath>ChangeUserInfoPage.xbf</PackagePath>
+      <Modified>2014-12-05T13:29:36.320</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\bin\Debug\DetailPage.xbf">
       <PackagePath>DetailPage.xbf</PackagePath>
-      <Modified>2014-12-03T12:44:52.212</Modified>
+      <Modified>2014-12-05T11:01:06.151</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\bin\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2014-12-03T12:44:52.220</Modified>
+      <Modified>2014-12-05T12:02:43.712</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\bin\Debug\Diary.xr.xml">
       <PackagePath>Diary.xr.xml</PackagePath>
-      <Modified>2014-12-03T12:44:52.093</Modified>
+      <Modified>2014-12-05T12:02:43.686</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2014-12-03T11:56:16.231</Modified>
+      <Modified>2014-12-05T11:38:47.267</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

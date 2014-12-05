@@ -47,6 +47,9 @@
     <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\bin\Debug\ChangeUserInfoPage.xbf">
+      <PackagePath>ChangeUserInfoPage.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\bin\Debug\DetailPage.xbf">
       <PackagePath>DetailPage.xbf</PackagePath>
     </AppxPackagedFile>

@@ -59,7 +59,7 @@ namespace Diary
             {
                 wrong_TextBlock.Text = "**密码不能为空**";
             }
-            else if (psw_TextBox.Password.Equals(usersDiary.Password.ToString()))
+            else if (psw_TextBox.Password.Equals(usersDiary.UserPassword.ToString()))
             {
                 wrong_TextBlock.Text = "";
                 Frame.Navigate(typeof(DetailPage), usersDiary);

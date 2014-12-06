@@ -33,5 +33,13 @@
         <DatePicker HorizontalAlignment="Left" Margin="33,15,0,0" VerticalAlignment="Top">
         </DatePicker>
     </Grid>
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarToggleButton x:ConnectionId='1' Icon="Setting" Label="修改信息"                         />
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:ConnectionId='2' Icon="Back" Label="返回登陆"                      />
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
 </Page>
 

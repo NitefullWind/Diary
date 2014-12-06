@@ -87,6 +87,17 @@ namespace Diary
 
                 if(fileInfo==null)
                 {
+                    localFolder = ApplicationData.Current.LocalFolder;
+                    //第一次使用，创建UserData数据;
+                    //将用户信息写入json字符串
+                    var strJson = JsonConvert.SerializeObject(new User { UserName = "", UserPassword = "" });
+                    //将json字符串写入json文件中
+                    Stream stream = await localFolder.OpenStreamForWriteAsync("UserData.json", CreationCollisionOption.ReplaceExisting);
+                    StreamWriter sw = new StreamWriter(stream, Encoding.UTF8);
+                    sw.WriteLine(strJson);
+                    sw.Flush();
+                    sw.Dispose();
+                    stream.Dispose();
                     rootFrame.Navigate(typeof(ChangeUserInfoPage), e.Arguments);
                 }
                 else

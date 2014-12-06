@@ -23,11 +23,10 @@ namespace Diary
     /// </summary>
     public sealed partial class DetailPage : Page
     {
-        private double BoxOpactity { get; set; }
+
         public DetailPage()
         {
             this.InitializeComponent();
-            BoxOpactity = 5;
         }
 
         //要从当前页面离开跳转到其他页面发生的事情
@@ -44,6 +43,16 @@ namespace Diary
             var lang = e.Parameter.ToString();
             dynamic usersDiary = JsonConvert.DeserializeObject(lang);
             UserDiary_Box.Text = usersDiary.UserName + "\n" + usersDiary.text + "\n";
+        }
+
+        private void SettingBar_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(ChangeUserInfoPage));
+        }
+
+        private void BackBar_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));
         }
     }
 }

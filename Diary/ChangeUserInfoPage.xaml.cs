@@ -26,12 +26,7 @@ namespace Diary
     /// </summary>
     public sealed partial class ChangeUserInfoPage : Page
     {
-        private user newUser;
-        public class user
-        {
-            public string UserName { get; set; }
-            public string Password { get; set; }
-        } 
+        User newUser;
         public ChangeUserInfoPage()
         {
             this.InitializeComponent();
@@ -40,12 +35,24 @@ namespace Diary
         private async void getStream()
         {
             var localFolder = ApplicationData.Current.LocalFolder;
-            //第一次使用，创建UserData数据;
-            newUser = new user { UserName = UserName_Box.Text, Password = UserPassword.Password };
-            //将用户信息写入json字符串
-            var strJson = JsonConvert.SerializeObject(newUser);
-            //将json字符串写入json文件中
-            Stream stream = await localFolder.OpenStreamForWriteAsync("UserData.json", CreationCollisionOption.ReplaceExisting);
+            //获得文件的操作流
+            Stream stream = await localFolder.OpenStreamForReadAsync("UserData.json");
+            //插管子读取
+            StreamReader sr = new StreamReader(stream, Encoding.GetEncoding("UTF-8"));
+            //把二进制流转换成文本
+            string users = await sr.ReadToEndAsync();
+            //将数组解析成对象
+            dynamic usersDiary = JsonConvert.DeserializeObject(users);
+            sr.Dispose();
+            stream.Dispose();
+            ////第一次使用，创建UserData数据;
+            //newUser = new User { UserName = UserName_Box.Text, UserPassword = UserPassword.Password };
+            ////将用户信息写入json字符串
+            usersDiary.UserName = UserName_Box.Text;
+            usersDiary.UserPassword = UserPassword.Password;
+            var strJson = JsonConvert.SerializeObject(usersDiary);
+            ////将json字符串写入json文件中
+            stream = await localFolder.OpenStreamForWriteAsync("UserData.json", CreationCollisionOption.ReplaceExisting);
             StreamWriter sw = new StreamWriter(stream, Encoding.UTF8);
             sw.WriteLine(strJson);
             sw.Flush();
@@ -77,7 +84,7 @@ namespace Diary
         private void SureHandler(IUICommand command)
         {
             getStream();
-            Frame.Navigate(typeof(MainPage), newUser);
+            Frame.Navigate(typeof(MainPage));
         }
     }
 }

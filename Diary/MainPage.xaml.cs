@@ -10,6 +10,7 @@ using Windows.Data.Json;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
+using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -18,6 +19,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.Threading;
+using Windows.System;
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上有介绍
 
@@ -28,7 +31,7 @@ namespace Diary
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private dynamic usersDiary;
+        private dynamic UserInfo;
         public MainPage()
         {
             this.InitializeComponent();
@@ -46,29 +49,50 @@ namespace Diary
             //把二进制流转换成文本
             string users = await sr.ReadToEndAsync();
             //将数组解析成对象
-            usersDiary = JsonConvert.DeserializeObject(users);
+            UserInfo = JsonConvert.DeserializeObject(users);
 
             //设置欢迎字符
-            user_TextBlock.Text = "您好，" + usersDiary.UserName;
+            user_TextBlock.Text = "您好，" + UserInfo.UserName;
             sr.Dispose();
             stream.Dispose();
         }
+        //按钮登录
         private void Login_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            Login();
+        }
+        //回车登录
+        private void psw_TextBox_KeyDown(object sender,KeyRoutedEventArgs e)
+        {
+            if(e.Key==VirtualKey.Enter)
+            {
+                //这个为毛会做两遍啊啊啊！！！
+                Login();
+            }
+        }
+        //登录函数
+        private void Login()
         {
             if(psw_TextBox.Password=="")
             {
                 wrong_TextBlock.Text = "**密码不能为空**";
             }
-            else if (psw_TextBox.Password.Equals(usersDiary.UserPassword.ToString()))
+            else if (psw_TextBox.Password.Equals(UserInfo.UserPassword.ToString()))
             {
                 wrong_TextBlock.Text = "";
-                Frame.Navigate(typeof(DetailPage), usersDiary);
+                Frame.Navigate(typeof(DetailPage), UserInfo);
             }
             else
             {
-                psw_TextBox.Password = "";
                 wrong_TextBlock.Text = "**密码错误**";
+                psw_TextBox.Password = "";
             }
+        }
+
+        //从别的页面跳转到当前页面发生的事情
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
         }
     }
 }

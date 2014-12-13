@@ -33,7 +33,6 @@ E:\windowsAPP\Diary\Diary\obj\Debug\ProjectArchitectures.txt
 E:\windowsAPP\Diary\Diary\bin\Debug\DataModel\Users.json
 E:\windowsAPP\Diary\Diary\bin\Debug\Newtonsoft.Json.dll
 E:\windowsAPP\Diary\Diary\bin\Debug\Newtonsoft.Json.xml
-E:\windowsAPP\Diary\Diary\obj\Debug\Diary.csprojResolveAssemblyReference.cache
 E:\windowsAPP\Diary\Diary\obj\Debug\Diary.csproj.GenerateResource.Cache
 E:\windowsAPP\Diary\Diary\bin\Debug\DetailPage.xbf
 E:\windowsAPP\Diary\Diary\obj\Debug\DetailPage.g.i.cs
@@ -45,3 +44,4 @@ E:\windowsAPP\Diary\Diary\obj\Debug\ChangeUserInfoPage.g.cs
 E:\windowsAPP\Diary\Diary\obj\Debug\ChangeUserInfoPage.xaml
 E:\windowsAPP\Diary\Diary\obj\Debug\ChangeUserInfoPage.xbf
 E:\windowsAPP\Diary\Diary\bin\Debug\ChangeUserInfoPage.xbf
+E:\windowsAPP\Diary\Diary\obj\Debug\Diary.csprojResolveAssemblyReference.cache

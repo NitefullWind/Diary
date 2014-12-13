@@ -26,42 +26,17 @@ namespace Diary
     /// </summary>
     public sealed partial class ChangeUserInfoPage : Page
     {
-        User newUser;
         public ChangeUserInfoPage()
         {
             this.InitializeComponent();
         }
 
-        private async void getStream()
-        {
-            var localFolder = ApplicationData.Current.LocalFolder;
-            //获得文件的操作流
-            Stream stream = await localFolder.OpenStreamForReadAsync("UserData.json");
-            //插管子读取
-            StreamReader sr = new StreamReader(stream, Encoding.GetEncoding("UTF-8"));
-            //把二进制流转换成文本
-            string users = await sr.ReadToEndAsync();
-            //将数组解析成对象
-            dynamic usersDiary = JsonConvert.DeserializeObject(users);
-            sr.Dispose();
-            stream.Dispose();
-            ////第一次使用，创建UserData数据;
-            //newUser = new User { UserName = UserName_Box.Text, UserPassword = UserPassword.Password };
-            ////将用户信息写入json字符串
-            usersDiary.UserName = UserName_Box.Text;
-            usersDiary.UserPassword = UserPassword.Password;
-            var strJson = JsonConvert.SerializeObject(usersDiary);
-            ////将json字符串写入json文件中
-            stream = await localFolder.OpenStreamForWriteAsync("UserData.json", CreationCollisionOption.ReplaceExisting);
-            StreamWriter sw = new StreamWriter(stream, Encoding.UTF8);
-            sw.WriteLine(strJson);
-            sw.Flush();
-            sw.Dispose();
-            stream.Dispose();
-        }
-
+        private User UserInfo = new User();
+        //保存用户信息
+        bool InfoIsOK;
         private async void Sure_Btn_Click(object sender, RoutedEventArgs e)
         {
+            InfoIsOK = false;
             if(UserName_Box.Text==""||UserPassword.Password=="")
             {
                 MessageDialog msg = new MessageDialog("用户名或密码不能为空");
@@ -74,17 +49,42 @@ namespace Diary
                 msg.Commands.Add(new UICommand("改一下", new UICommandInvokedHandler(this.ChangeHandler)));
                 await msg.ShowAsync();
             }
+            if(InfoIsOK)
+            {
+                //跳到登陆界面
+                Frame.Navigate(typeof(MainPage));
+            }
         }
 
+        //点“改一下”时
         private void ChangeHandler(IUICommand command)
         {
             UserPassword.Password = "";
         }
-
+        //点“我确定”时
         private void SureHandler(IUICommand command)
         {
-            getStream();
-            Frame.Navigate(typeof(MainPage));
+            //保存信息
+            WriteInfo();
+            InfoIsOK = true;
+        }
+
+        //创建用户信息
+        private async void WriteInfo()
+        {
+            var localFolder = ApplicationData.Current.LocalFolder;
+            //将用户信息写入json字符串
+            UserInfo.UserName = UserName_Box.Text;
+            UserInfo.UserPassword = UserPassword.Password;
+            //解析
+            var strJson = JsonConvert.SerializeObject(UserInfo);
+            ////将json字符串写入json文件中
+            Stream stream = await localFolder.OpenStreamForWriteAsync("UserData.json", CreationCollisionOption.ReplaceExisting);
+            StreamWriter sw = new StreamWriter(stream, Encoding.UTF8);
+            sw.WriteLine(strJson);
+            sw.Flush();
+            sw.Dispose();
+            stream.Dispose();
         }
     }
 }

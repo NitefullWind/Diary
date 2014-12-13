@@ -83,26 +83,34 @@ namespace Diary
 
                 //获得App的可以访问的私有空间
                 var localFolder = ApplicationData.Current.LocalFolder;
-                StorageFile fileInfo = await localFolder.TryGetItemAsync("UserData.json") as StorageFile;
 
-                if(fileInfo==null)
+                //检查是否有UserDiary文件
+                StorageFile fileInfo = await localFolder.TryGetItemAsync("UserDiary.json") as StorageFile;
+                if(fileInfo == null)
                 {
-                    localFolder = ApplicationData.Current.LocalFolder;
-                    //第一次使用，创建UserData数据;
-                    //将用户信息写入json字符串
-                    var strJson = JsonConvert.SerializeObject(new User { UserName = "", UserPassword = "" });
-                    //将json字符串写入json文件中
-                    Stream stream = await localFolder.OpenStreamForWriteAsync("UserData.json", CreationCollisionOption.ReplaceExisting);
+
+                    //创建UserDiary.json数据
+                    List<UserDiary> jsonDiary = new List<UserDiary>();
+                    jsonDiary.Add(new UserDiary { Time = "", Title = "", Text = "" });
+                    var strDiary = JsonConvert.SerializeObject(jsonDiary);
+                    Stream stream = await localFolder.OpenStreamForWriteAsync("UserDiary.json", CreationCollisionOption.ReplaceExisting);
                     StreamWriter sw = new StreamWriter(stream, Encoding.UTF8);
-                    sw.WriteLine(strJson);
+                    sw.WriteLine(strDiary);
                     sw.Flush();
                     sw.Dispose();
                     stream.Dispose();
-                    rootFrame.Navigate(typeof(ChangeUserInfoPage), e.Arguments);
+                }
+
+                //检查是否有UserData文件
+                fileInfo = await localFolder.TryGetItemAsync("UserData.json") as StorageFile;
+                if(fileInfo==null)
+                {
+                    //跳转到设置用户名和密码页面
+                    rootFrame.Navigate(typeof(ChangeUserInfoPage),e.Arguments);
                 }
                 else
                 {
-                    rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                    rootFrame.Navigate(typeof(MainPage),e.Arguments);
                 }
             }
             // 确保当前窗口处于活动状态

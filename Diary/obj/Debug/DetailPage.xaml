@@ -8,18 +8,20 @@
     mc:Ignorable="d">
     <Page.Resources>
         <Style TargetType="TextBox">
-            <Setter Property="Width" Value="700"/>
-            <Setter Property="Height" Value="700"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
             <Setter Property="Background" Value="{x:Null}"/>
-            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="BorderThickness" Value="2"/>
         </Style>
     </Page.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="23*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="47"/>
+            <RowDefinition Height="543*"/>
+            <RowDefinition Height="38*"/>
+            <RowDefinition Height="80*"/>
         </Grid.RowDefinitions>
         <Grid.Background>
             <ImageBrush ImageSource="Assets/Images/userBackground.jpg" ></ImageBrush>
@@ -29,15 +31,17 @@
             <ColumnDefinition Width="665*"/>
             <ColumnDefinition Width="350*"/>
         </Grid.ColumnDefinitions>
-        <TextBox Name="UserDiary_Box" TextWrapping="Wrap" Grid.Column="1" Text="{Binding ElementName=Opactity_Slider, Path=Value}" Grid.Row="0"/>
-        <DatePicker HorizontalAlignment="Left" Margin="33,15,0,0" VerticalAlignment="Top">
-        </DatePicker>
+        <TextBox Name="DiaryTitle_Box" TextAlignment="Center" FontSize="20" TextWrapping="Wrap" Text="Title" Grid.Row="1" Grid.Column="1" Margin="0,0,0,6"/>
+        <TextBox Name="UserDiary_Box" AcceptsReturn="True" TabIndex="4" TextWrapping="Wrap" Text="{Binding ElementName=Opactity_Slider, Path=Value}" Grid.Row="2" Grid.Column="1"/>
+        <DatePicker HorizontalAlignment="Left" VerticalAlignment="Top" Height="32" Width="295"/>
+        <Button x:ConnectionId='1'                      Content="保存" Grid.Column="1" HorizontalAlignment="Left" Margin="573,0,0,0" Grid.Row="3" VerticalAlignment="Top" Height="41" Width="95" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+        <TextBlock Name="Time_Block" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="184" Height="39" Grid.Column="1"/>
     </Grid>
     <Page.BottomAppBar>
         <CommandBar>
-            <AppBarToggleButton x:ConnectionId='1' Icon="Setting" Label="修改信息"                         />
+            <AppBarToggleButton x:ConnectionId='2' Icon="Setting" Label="修改信息"                         />
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:ConnectionId='2' Icon="Back" Label="返回登陆"                      />
+                <AppBarButton x:ConnectionId='3' Icon="Back" Label="返回登陆"                      />
             </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>

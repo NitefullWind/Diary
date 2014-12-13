@@ -29,6 +29,7 @@ namespace Diary
         public DetailPage()
         {
             this.InitializeComponent();
+            Time_Block.Text = DateTime.Now.ToString("yyyy年MM月dd日 dddd HH:mm:ss");
         }
 
         //要从当前页面离开跳转到其他页面发生的事情
@@ -45,7 +46,7 @@ namespace Diary
         }
 
         //读取日记
-        List<UserDiary> data;
+        List<UserDiary> AllDiary;
         StorageFolder localFolder;
         private async void ReadUserDiary()
         {
@@ -57,9 +58,23 @@ namespace Diary
             StreamReader sr = new StreamReader(stream, Encoding.GetEncoding("UTF-8"));
             //把二进制流转换成文本
             string json = await sr.ReadToEndAsync();
-            data = JsonConvert.DeserializeObject<List<UserDiary>>(json);
-            DiaryTitle_Box.Text = data[0].Title;
-            UserDiary_Box.Text = data[0].Text;
+            //获取所有日记对象链表
+            AllDiary = JsonConvert.DeserializeObject<List<UserDiary>>(json);
+
+            //查找是否有今日的日记
+            UserDiary NowDiary = AllDiary.Find(
+                delegate(UserDiary d)
+                { return d.Time == DateTime.Now.ToString("yyyy-MM-dd"); });
+            if (NowDiary == null || NowDiary.Time == null)
+            {
+                DiaryTitle_Box.Text = "";
+                UserDiary_Box.Text = "";
+            }
+            else
+            {
+                DiaryTitle_Box.Text = NowDiary.Title;
+                UserDiary_Box.Text = NowDiary.Text;
+            }
             sr.Dispose();
             stream.Dispose();
         }
@@ -77,10 +92,24 @@ namespace Diary
         //保存日记
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            ////将用户信息写入json字符串
-            data.Add(new UserDiary { Time = "123", Title = DiaryTitle_Box.Text, Text = UserDiary_Box.Text });
-            var strJson = JsonConvert.SerializeObject(data);
-            ////将json字符串写入json文件中
+            string taday = DateTime.Now.ToString("yyyy-MM-dd");
+            //查找是否有今日的日记
+            UserDiary NowDiary = AllDiary.Find(
+                delegate(UserDiary d)
+                { return d.Time == taday; });
+            if(NowDiary==null || NowDiary.Time==null)
+            {
+                //新日记添加到链表中
+                AllDiary.Add(new UserDiary { Time = DateTime.Now.ToString("yyyy-MM-dd"), Title = DiaryTitle_Box.Text, Text = UserDiary_Box.Text });
+            }
+                //或者保存修改的日记
+            else
+            {
+                NowDiary.Title = DiaryTitle_Box.Text;
+                NowDiary.Text = UserDiary_Box.Text;
+            }
+            var strJson = JsonConvert.SerializeObject(AllDiary);
+            //将json字符串写入json文件中
             Stream stream = await localFolder.OpenStreamForWriteAsync("UserDiary.json", CreationCollisionOption.ReplaceExisting);
             StreamWriter sw = new StreamWriter(stream, Encoding.UTF8);
             sw.WriteLine(strJson);

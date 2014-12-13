@@ -51,8 +51,18 @@ namespace Diary
             //将数组解析成对象
             UserInfo = JsonConvert.DeserializeObject(users);
 
+            //获取当前小时数
+            int NowTime = DateTime.Now.Hour;
+            string WelcomeStr = "你好";
+            if (NowTime >= 6 && NowTime < 8) { WelcomeStr = "早安，";} ;
+            if (NowTime >= 8 && NowTime < 11) { WelcomeStr = "上午好，"; };
+            if (NowTime >= 11 && NowTime < 13) { WelcomeStr = "中午好，";} ;
+            if (NowTime >= 13 && NowTime < 19) { WelcomeStr = "下午好，";} ;
+            if (NowTime >= 19 && NowTime < 23) { WelcomeStr = "晚上好，";} ;
+            if (NowTime >= 23 || NowTime < 4) { WelcomeStr = "夜深了，早点休息，"; };
+            if (NowTime >= 4 && NowTime < 6) { WelcomeStr = "一日之计在于晨，"; };
             //设置欢迎字符
-            user_TextBlock.Text = "您好，" + UserInfo.UserName;
+            user_TextBlock.Text = WelcomeStr + UserInfo.UserName;
             sr.Dispose();
             stream.Dispose();
         }

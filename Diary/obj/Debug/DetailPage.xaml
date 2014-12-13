@@ -35,7 +35,7 @@
         <TextBox Name="UserDiary_Box" AcceptsReturn="True" TabIndex="4" TextWrapping="Wrap" Text="{Binding ElementName=Opactity_Slider, Path=Value}" Grid.Row="2" Grid.Column="1"/>
         <DatePicker HorizontalAlignment="Left" VerticalAlignment="Top" Height="32" Width="295"/>
         <Button x:ConnectionId='1'                      Content="保存" Grid.Column="1" HorizontalAlignment="Left" Margin="573,0,0,0" Grid.Row="3" VerticalAlignment="Top" Height="41" Width="95" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-        <TextBlock Name="Time_Block" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="184" Height="39" Grid.Column="1"/>
+        <TextBlock Name="Time_Block" Grid.Column="1" Foreground="Black" HorizontalAlignment="Left" FontWeight="Thin" VerticalAlignment="Bottom" TextAlignment="Center" FontSize="20"  TextWrapping="Wrap" Text="NowTime"/>
     </Grid>
     <Page.BottomAppBar>
         <CommandBar>

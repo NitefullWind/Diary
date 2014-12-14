@@ -29,7 +29,8 @@ namespace Diary
         public DetailPage()
         {
             this.InitializeComponent();
-            Time_Block.Text = DateTime.Now.ToString("yyyy年MM月dd日 dddd HH:mm:ss");
+            //显示日期
+            Time_Block.Text = DateTime.Now.ToString("yyyy年MM月dd日 dddd");
         }
 
         //要从当前页面离开跳转到其他页面发生的事情
@@ -100,7 +101,7 @@ namespace Diary
             if(NowDiary==null || NowDiary.Time==null)
             {
                 //新日记添加到链表中
-                AllDiary.Add(new UserDiary { Time = DateTime.Now.ToString("yyyy-MM-dd"), Title = DiaryTitle_Box.Text, Text = UserDiary_Box.Text });
+                AllDiary.Add(new UserDiary { Time = taday, Title = DiaryTitle_Box.Text, Text = UserDiary_Box.Text });
             }
                 //或者保存修改的日记
             else

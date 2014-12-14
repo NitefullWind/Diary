@@ -53,9 +53,9 @@ namespace Diary
 
             //获取当前小时数
             int NowTime = DateTime.Now.Hour;
-            string WelcomeStr = "你好";
-            if (NowTime >= 6 && NowTime < 8) { WelcomeStr = "早安，";} ;
-            if (NowTime >= 8 && NowTime < 11) { WelcomeStr = "上午好，"; };
+            string WelcomeStr = "您好";
+            if (NowTime >= 6 && NowTime < 9) { WelcomeStr = "早安，";} ;
+            if (NowTime >= 9 && NowTime < 11) { WelcomeStr = "上午好，"; };
             if (NowTime >= 11 && NowTime < 13) { WelcomeStr = "中午好，";} ;
             if (NowTime >= 13 && NowTime < 19) { WelcomeStr = "下午好，";} ;
             if (NowTime >= 19 && NowTime < 23) { WelcomeStr = "晚上好，";} ;
@@ -72,14 +72,14 @@ namespace Diary
             Login();
         }
         //回车登录
-        private void psw_TextBox_KeyDown(object sender,KeyRoutedEventArgs e)
+        private void psw_TextBox_KeyUp(object sender, KeyRoutedEventArgs e)
         {
-            if(e.Key==VirtualKey.Enter)
+            if (e.Key == VirtualKey.Enter)
             {
-                //这个为毛会做两遍啊啊啊！！！
                 Login();
             }
         }
+
         //登录函数
         private void Login()
         {

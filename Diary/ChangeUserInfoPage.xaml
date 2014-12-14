@@ -27,7 +27,7 @@
         <Style TargetType="PasswordBox">
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Background" Value="{x:Null}"/>
-            <Setter Property="FontSize" Value="35"/>
+            <Setter Property="FontSize" Value="30"/>
         </Style>
         <Style TargetType="Button">
             <Setter Property="BorderThickness" Value="0"/>
@@ -42,16 +42,16 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="283*"/>
-            <RowDefinition Height="41*"/>
-            <RowDefinition Height="54*"/>
-            <RowDefinition Height="43*"/>
-            <RowDefinition Height="49*"/>
+            <RowDefinition Height="41"/>
+            <RowDefinition Height="54"/>
+            <RowDefinition Height="43"/>
+            <RowDefinition Height="49"/>
             <RowDefinition Height="298*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="400*"/>
-            <ColumnDefinition Width="283*"/>
-            <ColumnDefinition Width="283*"/>
+            <ColumnDefinition Width="283"/>
+            <ColumnDefinition Width="283"/>
             <ColumnDefinition Width="400*"/>
         </Grid.ColumnDefinitions>
         <TextBlock Text="欢迎使用该软件" HorizontalAlignment="Center" Grid.Column="1" Width="224" Grid.ColumnSpan="2" Grid.Row="1"/>
@@ -60,11 +60,11 @@
             <TextBox Name="UserName_Box" Width="270" Height="45" Background="{x:Null}"></TextBox>
         </Border>
         <TextBlock Text="请设置您的密码：" HorizontalAlignment="Center"  Grid.Row="3" Grid.Column="1" Width="256" />
-        <Border  Grid.Row="3" Grid.Column="2" Width="270" Height="45">
-            <PasswordBox Name="UserPassword" Width="270" Height="45" Background="{x:Null}"></PasswordBox>
+        <Border  Grid.Row="3" Grid.Column="2" Width="270" Height="40">
+            <PasswordBox Name="UserPassword" Width="270" Height="40" Background="{x:Null}"></PasswordBox>
         </Border>
         <Border Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Width="200" Height="40">
-            <Button Name="Sure_Btn" Click="Sure_Btn_Click" Width="202" Height="42" FontSize="20" Content="确定" />
+            <Button Name="Sure_Btn" Click="Sure_Btn_Click" Width="202" Height="45" FontSize="20" Content="确定" />
         </Border>
     </Grid>
 </Page>

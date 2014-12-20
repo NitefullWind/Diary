@@ -131,6 +131,11 @@
   <ItemGroup>
     <Content Include="Assets\Images\LoginBackground.jpg" />
     <Content Include="Assets\Images\userBackground.jpg" />
+    <Content Include="Assets\Images\一般.jpg" />
+    <Content Include="Assets\Images\幸福.jpg" />
+    <Content Include="Assets\Images\开心.jpg" />
+    <Content Include="Assets\Images\烦躁.jpg" />
+    <Content Include="Assets\Images\难过.jpg" />
     <Content Include="Assets\Logo.scale-100.png" />
     <Content Include="Assets\SmallLogo.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-100.png" />

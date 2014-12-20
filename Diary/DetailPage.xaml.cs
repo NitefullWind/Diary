@@ -9,12 +9,14 @@ using Windows.ApplicationModel;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上有介绍
@@ -26,11 +28,16 @@ namespace Diary
     /// </summary>
     public sealed partial class DetailPage : Page
     {
+        List<UserDiary> AllDiary;
+        StorageFolder localFolder;
+        string ThisDate;
+
         public DetailPage()
         {
             this.InitializeComponent();
             //显示日期
-            Time_Block.Text = DateTime.Now.ToString("yyyy年MM月dd日 dddd");
+            //Time_Block.Text = DateTime.Now.ToString("yyyy年MM月dd日 dddd");
+            ThisDate = DateTime.Now.ToString("yyyy-MM-dd");
         }
 
         //要从当前页面离开跳转到其他页面发生的事情
@@ -47,8 +54,6 @@ namespace Diary
         }
 
         //读取日记
-        List<UserDiary> AllDiary;
-        StorageFolder localFolder;
         private async void ReadUserDiary()
         {
             //获得App的安装目录的根目录
@@ -61,11 +66,11 @@ namespace Diary
             string json = await sr.ReadToEndAsync();
             //获取所有日记对象链表
             AllDiary = JsonConvert.DeserializeObject<List<UserDiary>>(json);
-
+            
             //查找是否有今日的日记
             UserDiary NowDiary = AllDiary.Find(
                 delegate(UserDiary d)
-                { return d.Time == DateTime.Now.ToString("yyyy-MM-dd"); });
+                { return d.Time == ThisDate; });
             if (NowDiary == null || NowDiary.Time == null)
             {
                 DiaryTitle_Box.Text = "";
@@ -75,6 +80,7 @@ namespace Diary
             {
                 DiaryTitle_Box.Text = NowDiary.Title;
                 UserDiary_Box.Text = NowDiary.Text;
+                Tag_Box.SelectedIndex = NowDiary.Mood;
             }
             sr.Dispose();
             stream.Dispose();
@@ -90,24 +96,48 @@ namespace Diary
         {
             Frame.Navigate(typeof(MainPage));
         }
-        //保存日记
-        private async void Button_Click(object sender, RoutedEventArgs e)
+
+        //文本框内Tab键不设置跳转
+        private void UserDiary_Box_KeyDown(object sender, KeyRoutedEventArgs e)
         {
-            string taday = DateTime.Now.ToString("yyyy-MM-dd");
+            if(e.Key == Windows.System.VirtualKey.Tab)
+            {
+                e.Handled = true;
+            }
+        }
+
+        //日期变化时
+        private void ChoseDate_DateChanged(object sender, DatePickerValueChangedEventArgs e)
+        {
+            ThisDate = ChoseDate.Date.ToString("yyyy-MM-dd");
+            ReadUserDiary();
+        }
+
+        //日期重设为今日
+        private void BackToday_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            ChoseDate.Date = DateTime.Now;
+        }
+
+
+        //保存日记
+        private async void SaveDiary()
+        {
             //查找是否有今日的日记
             UserDiary NowDiary = AllDiary.Find(
                 delegate(UserDiary d)
-                { return d.Time == taday; });
-            if(NowDiary==null || NowDiary.Time==null)
+                { return d.Time == ThisDate; });
+            if (NowDiary == null || NowDiary.Time == null)
             {
                 //新日记添加到链表中
-                AllDiary.Add(new UserDiary { Time = taday, Title = DiaryTitle_Box.Text, Text = UserDiary_Box.Text });
+                AllDiary.Add(new UserDiary { Time = ThisDate, Title = DiaryTitle_Box.Text, Text = UserDiary_Box.Text, Mood = Tag_Box.SelectedIndex});
             }
-                //或者保存修改的日记
+            //或者保存修改的日记
             else
             {
                 NowDiary.Title = DiaryTitle_Box.Text;
                 NowDiary.Text = UserDiary_Box.Text;
+                NowDiary.Mood = Tag_Box.SelectedIndex;
             }
             var strJson = JsonConvert.SerializeObject(AllDiary);
             //将json字符串写入json文件中
@@ -117,6 +147,73 @@ namespace Diary
             sw.Flush();
             sw.Dispose();
             stream.Dispose();
+        }
+
+        //保存
+        private void Save_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            SaveDiary();
+        }
+        //清空
+        private void Clean_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            UserDiary_Box.Text = "";
+        }
+        //删除
+        private async void Delite_Btn_Click(object sender, RoutedEventArgs e)
+        {
+
+            MessageDialog msg = new MessageDialog("日记删除后不可恢复，确定要继续？");
+            msg.Commands.Add(new UICommand("Yes!", new UICommandInvokedHandler(this.SureHandler)));
+            msg.Commands.Add(new UICommand("Oh,no!"));
+            await msg.ShowAsync();
+        }
+        //点“确定”时
+        private void SureHandler(IUICommand command)
+        {
+            DiaryTitle_Box.Text = "";
+            UserDiary_Box.Text = "";
+            SaveDiary();
+        }
+
+        //显示心情标签
+        private void Mood_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            selectMood();
+        }
+
+        public void selectMood()
+        {
+            if (Tag_Box.SelectedIndex == 0)
+            {
+                mood.Source =
+                new BitmapImage(
+                new Uri("ms-appx:///Assets/Images/幸福.jpg", UriKind.RelativeOrAbsolute));
+            }
+            if (Tag_Box.SelectedIndex == 1)
+            {
+                mood.Source =
+                new BitmapImage(
+                new Uri("ms-appx:///Assets/Images/开心.jpg", UriKind.RelativeOrAbsolute));
+            }
+            if (Tag_Box.SelectedIndex == 2)
+            {
+                mood.Source =
+                new BitmapImage(
+                new Uri("ms-appx:///Assets/Images/一般.jpg", UriKind.RelativeOrAbsolute));
+            }
+            if (Tag_Box.SelectedIndex == 3)
+            {
+                mood.Source =
+                new BitmapImage(
+                new Uri("ms-appx:///Assets/Images/烦躁.jpg", UriKind.RelativeOrAbsolute));
+            }
+            if (Tag_Box.SelectedIndex == 4)
+            {
+                mood.Source =
+                new BitmapImage(
+                new Uri("ms-appx:///Assets/Images/难过.jpg", UriKind.RelativeOrAbsolute));
+            }
         }
     }
 }

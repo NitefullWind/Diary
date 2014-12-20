@@ -11,6 +11,7 @@ namespace Diary
         private string time;
         private string title;
         private string text;
+        private int mood;
 
         public string Time
         {
@@ -26,6 +27,11 @@ namespace Diary
         {
             get { return text; }
             set { text = value; }
+        }
+        public int Mood
+        {
+            get { return mood; }
+            set { mood = value; }
         }
     }
 }

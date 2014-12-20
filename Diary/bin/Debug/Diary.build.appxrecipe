@@ -28,6 +28,21 @@
     <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\Assets\Images\userBackground.jpg">
       <PackagePath>Assets\Images\userBackground.jpg</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\Assets\Images\一般.jpg">
+      <PackagePath>Assets\Images\一般.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\Assets\Images\幸福.jpg">
+      <PackagePath>Assets\Images\幸福.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\Assets\Images\开心.jpg">
+      <PackagePath>Assets\Images\开心.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\Assets\Images\烦躁.jpg">
+      <PackagePath>Assets\Images\烦躁.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\Assets\Images\难过.jpg">
+      <PackagePath>Assets\Images\难过.jpg</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>

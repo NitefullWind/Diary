@@ -20,13 +20,13 @@
     <AppXManifest Include="E:\windowsAPP\Diary\Diary\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2014-12-13T16:19:40.548</Modified>
+      <Modified>2014-12-20T12:03:46.052</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\bin\Debug\Diary.exe">
       <PackagePath>Diary.exe</PackagePath>
-      <Modified>2014-12-13T16:58:57.183</Modified>
+      <Modified>2014-12-20T15:27:38.716</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\windowsAPP\Diary\packages\Newtonsoft.Json.6.0.6\lib\netcore45\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
@@ -39,6 +39,26 @@
     <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\Assets\Images\userBackground.jpg">
       <PackagePath>Assets\Images\userBackground.jpg</PackagePath>
       <Modified>2014-12-03T11:33:55.046</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\Assets\Images\一般.jpg">
+      <PackagePath>Assets\Images\一般.jpg</PackagePath>
+      <Modified>2014-12-20T15:44:37.483</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\Assets\Images\幸福.jpg">
+      <PackagePath>Assets\Images\幸福.jpg</PackagePath>
+      <Modified>2014-12-20T15:44:37.481</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\Assets\Images\开心.jpg">
+      <PackagePath>Assets\Images\开心.jpg</PackagePath>
+      <Modified>2014-12-20T15:44:37.436</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\Assets\Images\烦躁.jpg">
+      <PackagePath>Assets\Images\烦躁.jpg</PackagePath>
+      <Modified>2014-12-20T15:44:37.431</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\Assets\Images\难过.jpg">
+      <PackagePath>Assets\Images\难过.jpg</PackagePath>
+      <Modified>2014-12-20T15:44:37.439</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
@@ -66,23 +86,23 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\bin\Debug\ChangeUserInfoPage.xbf">
       <PackagePath>ChangeUserInfoPage.xbf</PackagePath>
-      <Modified>2014-12-07T03:27:53.093</Modified>
+      <Modified>2014-12-20T10:53:53.740</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\bin\Debug\DetailPage.xbf">
       <PackagePath>DetailPage.xbf</PackagePath>
-      <Modified>2014-12-13T16:28:52.849</Modified>
+      <Modified>2014-12-20T15:27:38.334</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\bin\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2014-12-07T03:27:53.098</Modified>
+      <Modified>2014-12-15T05:25:19.569</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\bin\Debug\Diary.xr.xml">
       <PackagePath>Diary.xr.xml</PackagePath>
-      <Modified>2014-12-13T16:28:52.823</Modified>
+      <Modified>2014-12-20T15:27:38.308</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2014-12-13T16:19:39.862</Modified>
+      <Modified>2014-12-20T12:03:45.280</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -31,6 +31,7 @@ namespace Diary
         List<UserDiary> AllDiary;
         StorageFolder localFolder;
         string ThisDate;
+        public string DImageNAme = "I_1";
 
         public DetailPage()
         {
@@ -51,6 +52,14 @@ namespace Diary
         {
             base.OnNavigatedTo(e);
             ReadUserDiary();
+            if (DImageNAme != null)
+            {
+                ImageBrush imgb = new ImageBrush();
+                imgb.ImageSource =
+                new BitmapImage(
+                    new Uri("ms-appx:///Assets/ImagesBackgrounds/" + DImageNAme + ".png", UriKind.RelativeOrAbsolute));
+                myGrid.Background = imgb;
+            }
         }
 
         //读取日记
@@ -95,6 +104,12 @@ namespace Diary
         private void BackBar_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(MainPage));
+        }
+        //跳到修改背景界面
+        private void AppBarToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(BackgroundPage));
+
         }
 
         //文本框内Tab键不设置跳转

@@ -15,7 +15,7 @@
         </Style>
     </Page.Resources>
 
-    <Grid>
+    <Grid Name="myGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="60*"/>
             <RowDefinition Height="47"/>
@@ -37,7 +37,7 @@
         <Button Click="Save_Btn_Click" Grid.Column="1" HorizontalAlignment="Right" Grid.Row="3" Content="保存" VerticalAlignment="Top"/>
         <Button Click="Clean_Btn_Click" Grid.Column="1" HorizontalAlignment="Right" Grid.Row="3" Content="清空" Margin="0,0,110,0" VerticalAlignment="Top"/>
         <Button Click="Delite_Btn_Click" Grid.Column="1" HorizontalAlignment="Right" Grid.Row="3" Content="删除" Margin="0,0,55,0" VerticalAlignment="Top"/>
-        <Button Name="BackToday_Btn" Click="BackToday_Btn_Click" Content="Today" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment = "Bottom" Height="35" Width="71"/>
+        <Button Name="BackToday_Btn" Click="BackToday_Btn_Click" Content="Today" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment = "Bottom" Height="35" Width="80"/>
         <ComboBox Name="Tag_Box" Grid.Column="2" HorizontalAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" Width="90" Grid.Row="1" SelectedIndex="0" TabNavigation="Local">
             <ComboBoxItem Name="Tag1" Content="幸福"/>
             <ComboBoxItem Name="Tag2" Content="开心"/>
@@ -52,6 +52,7 @@
     <Page.BottomAppBar>
         <CommandBar>
             <AppBarToggleButton Icon="Setting" Label="修改信息" Click="SettingBar_Click"/>
+            <AppBarToggleButton Icon="Pictures"  Label="更换背景" Click="AppBarToggleButton_Click"/>
             <CommandBar.SecondaryCommands>
                 <AppBarButton Icon="Back" Label="返回登陆" Click="BackBar_Click"/>
             </CommandBar.SecondaryCommands>

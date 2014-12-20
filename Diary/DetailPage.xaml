@@ -32,10 +32,12 @@
             <ColumnDefinition Width="350*"/>
         </Grid.ColumnDefinitions>
         <TextBox Name="DiaryTitle_Box" TextAlignment="Center" FontSize="20" TextWrapping="Wrap" Text="Title" Grid.Row="1" Grid.Column="1" Margin="0,0,0,6"/>
-        <TextBox Name="UserDiary_Box" AcceptsReturn="True" TabIndex="4" TextWrapping="Wrap" Text="{Binding ElementName=Opactity_Slider, Path=Value}" Grid.Row="2" Grid.Column="1"/>
-        <DatePicker HorizontalAlignment="Left" VerticalAlignment="Top" Height="32" Width="295"/>
-        <Button Click="Button_Click" Grid.Column="1" HorizontalAlignment="Right" Grid.Row="3" Content="保存" VerticalAlignment="Top"/>
-        <TextBlock Name="Time_Block" Grid.Column="1" Foreground="Black" HorizontalAlignment="Left" FontWeight="Thin" VerticalAlignment="Bottom" TextAlignment="Center" FontSize="20"  TextWrapping="Wrap" Text="NowTime"/>
+        <TextBox Name="UserDiary_Box" KeyDown="UserDiary_Box_KeyDown" AcceptsReturn="True" TabIndex="4" TextWrapping="Wrap" Text="{Binding ElementName=Opactity_Slider, Path=Value}" Grid.Row="2" Grid.Column="1"/>
+        <DatePicker Name="ChoseDate" DateChanged="ChoseDate_DateChanged" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Bottom"  Height="32" Grid.Column="1"/>
+        <Button Click="Save_Btn_Click" Grid.Column="1" HorizontalAlignment="Right" Grid.Row="3" Content="保存" VerticalAlignment="Top"/>
+        <Button Click="Clean_Btn_Click" Grid.Column="1" HorizontalAlignment="Right" Grid.Row="3" Content="清空" Margin="0,0,110,0" VerticalAlignment="Top"/>
+        <Button Click="Delite_Btn_Click" Grid.Column="1" HorizontalAlignment="Right" Grid.Row="3" Content="删除" Margin="0,0,55,0" VerticalAlignment="Top"/>
+        <Button Name="BackToday_Btn" Click="BackToday_Btn_Click" Content="Today" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment = "Bottom" Height="35" Width="71"/>
     </Grid>
     <Page.BottomAppBar>
         <CommandBar>

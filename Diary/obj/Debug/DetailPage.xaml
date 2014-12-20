@@ -15,7 +15,7 @@
         </Style>
     </Page.Resources>
 
-    <Grid>
+    <Grid Name="myGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="60*"/>
             <RowDefinition Height="47"/>
@@ -52,8 +52,14 @@
     <Page.BottomAppBar>
         <CommandBar>
             <AppBarToggleButton x:ConnectionId='8' Icon="Setting" Label="修改信息"                         />
+<<<<<<< HEAD
             <CommandBar.SecondaryCommands>
                 <AppBarButton x:ConnectionId='9' Icon="Back" Label="返回登陆"                      />
+=======
+            <AppBarToggleButton x:ConnectionId='9' Icon="Pictures"  Label="更换背景"                                 />
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:ConnectionId='10' Icon="Back" Label="返回登陆"                      />
+>>>>>>> whr
             </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>

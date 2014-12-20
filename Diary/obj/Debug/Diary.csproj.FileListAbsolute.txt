@@ -45,3 +45,8 @@ E:\windowsAPP\Diary\Diary\obj\Debug\ChangeUserInfoPage.xaml
 E:\windowsAPP\Diary\Diary\obj\Debug\ChangeUserInfoPage.xbf
 E:\windowsAPP\Diary\Diary\bin\Debug\ChangeUserInfoPage.xbf
 E:\windowsAPP\Diary\Diary\obj\Debug\Diary.csprojResolveAssemblyReference.cache
+E:\windowsAPP\Diary\Diary\obj\Debug\BackgroundPage.g.i.cs
+E:\windowsAPP\Diary\Diary\obj\Debug\BackgroundPage.g.cs
+E:\windowsAPP\Diary\Diary\obj\Debug\BackgroundPage.xaml
+E:\windowsAPP\Diary\Diary\obj\Debug\BackgroundPage.xbf
+E:\windowsAPP\Diary\Diary\bin\Debug\BackgroundPage.xbf

@@ -32,16 +32,28 @@
             <ColumnDefinition Width="350*"/>
         </Grid.ColumnDefinitions>
         <TextBox Name="DiaryTitle_Box" TextAlignment="Center" FontSize="20" TextWrapping="Wrap" Text="Title" Grid.Row="1" Grid.Column="1" Margin="0,0,0,6"/>
-        <TextBox Name="UserDiary_Box" AcceptsReturn="True" TabIndex="4" TextWrapping="Wrap" Text="{Binding ElementName=Opactity_Slider, Path=Value}" Grid.Row="2" Grid.Column="1"/>
-        <DatePicker HorizontalAlignment="Left" VerticalAlignment="Top" Height="32" Width="295"/>
-        <Button x:ConnectionId='1'                      Content="保存" Grid.Column="1" HorizontalAlignment="Left" Margin="573,0,0,0" Grid.Row="3" VerticalAlignment="Top" Height="41" Width="95" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-        <TextBlock Name="Time_Block" Grid.Column="1" Foreground="Black" HorizontalAlignment="Left" FontWeight="Thin" VerticalAlignment="Bottom" TextAlignment="Center" FontSize="20"  TextWrapping="Wrap" Text="NowTime"/>
+        <TextBox x:ConnectionId='1' Name="UserDiary_Box"                                 AcceptsReturn="True" TabIndex="4" TextWrapping="Wrap" Text="{Binding ElementName=Opactity_Slider, Path=Value}" Grid.Row="2" Grid.Column="1"/>
+        <DatePicker x:ConnectionId='2' Name="ChoseDate"                                     Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Bottom"  Height="32" Grid.Column="1"/>
+        <Button x:ConnectionId='3'                        Grid.Column="1" HorizontalAlignment="Right" Grid.Row="3" Content="保存" VerticalAlignment="Top"/>
+        <Button x:ConnectionId='4'                         Grid.Column="1" HorizontalAlignment="Right" Grid.Row="3" Content="清空" Margin="0,0,110,0" VerticalAlignment="Top"/>
+        <Button x:ConnectionId='5'                          Grid.Column="1" HorizontalAlignment="Right" Grid.Row="3" Content="删除" Margin="0,0,55,0" VerticalAlignment="Top"/>
+        <Button x:ConnectionId='6' Name="BackToday_Btn"                             Content="Today" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment = "Bottom" Height="35" Width="71"/>
+        <ComboBox Name="Tag_Box" Grid.Column="2" HorizontalAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" Width="90" Grid.Row="1" SelectedIndex="0" TabNavigation="Local">
+            <ComboBoxItem Name="Tag1" Content="幸福"/>
+            <ComboBoxItem Name="Tag2" Content="开心"/>
+            <ComboBoxItem Name="Tag3" Content="一般"/>
+            <ComboBoxItem Name="Tag4" Content="烦躁"/>
+            <ComboBoxItem Name="Tag5" Content="难过"/>
+        </ComboBox>
+        <Image Name="mood"
+               Grid.Column="2" HorizontalAlignment="Left" Height="100" Margin="30,104,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100"/>
+        <Button x:ConnectionId='7' Name="Mood_Btn" Content="显示心情标签"                        Background="{x:Null}" BorderBrush="{x:Null}" Grid.Column="2" HorizontalAlignment="Left" Margin="100,0,0,0" Grid.Row="1" VerticalAlignment="Top"/>
     </Grid>
     <Page.BottomAppBar>
         <CommandBar>
-            <AppBarToggleButton x:ConnectionId='2' Icon="Setting" Label="修改信息"                         />
+            <AppBarToggleButton x:ConnectionId='8' Icon="Setting" Label="修改信息"                         />
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:ConnectionId='3' Icon="Back" Label="返回登陆"                      />
+                <AppBarButton x:ConnectionId='9' Icon="Back" Label="返回登陆"                      />
             </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>

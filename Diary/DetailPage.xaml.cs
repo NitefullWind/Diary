@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上有介绍
@@ -79,6 +80,7 @@ namespace Diary
             {
                 DiaryTitle_Box.Text = NowDiary.Title;
                 UserDiary_Box.Text = NowDiary.Text;
+                Tag_Box.SelectedIndex = NowDiary.Mood;
             }
             sr.Dispose();
             stream.Dispose();
@@ -128,13 +130,14 @@ namespace Diary
             if (NowDiary == null || NowDiary.Time == null)
             {
                 //新日记添加到链表中
-                AllDiary.Add(new UserDiary { Time = ThisDate, Title = DiaryTitle_Box.Text, Text = UserDiary_Box.Text });
+                AllDiary.Add(new UserDiary { Time = ThisDate, Title = DiaryTitle_Box.Text, Text = UserDiary_Box.Text, Mood = Tag_Box.SelectedIndex});
             }
             //或者保存修改的日记
             else
             {
                 NowDiary.Title = DiaryTitle_Box.Text;
                 NowDiary.Text = UserDiary_Box.Text;
+                NowDiary.Mood = Tag_Box.SelectedIndex;
             }
             var strJson = JsonConvert.SerializeObject(AllDiary);
             //将json字符串写入json文件中
@@ -173,5 +176,44 @@ namespace Diary
             SaveDiary();
         }
 
+        //显示心情标签
+        private void Mood_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            selectMood();
+        }
+
+        public void selectMood()
+        {
+            if (Tag_Box.SelectedIndex == 0)
+            {
+                mood.Source =
+                new BitmapImage(
+                new Uri("ms-appx:///Assets/Images/幸福.jpg", UriKind.RelativeOrAbsolute));
+            }
+            if (Tag_Box.SelectedIndex == 1)
+            {
+                mood.Source =
+                new BitmapImage(
+                new Uri("ms-appx:///Assets/Images/开心.jpg", UriKind.RelativeOrAbsolute));
+            }
+            if (Tag_Box.SelectedIndex == 2)
+            {
+                mood.Source =
+                new BitmapImage(
+                new Uri("ms-appx:///Assets/Images/一般.jpg", UriKind.RelativeOrAbsolute));
+            }
+            if (Tag_Box.SelectedIndex == 3)
+            {
+                mood.Source =
+                new BitmapImage(
+                new Uri("ms-appx:///Assets/Images/烦躁.jpg", UriKind.RelativeOrAbsolute));
+            }
+            if (Tag_Box.SelectedIndex == 4)
+            {
+                mood.Source =
+                new BitmapImage(
+                new Uri("ms-appx:///Assets/Images/难过.jpg", UriKind.RelativeOrAbsolute));
+            }
+        }
     }
 }

@@ -22,7 +22,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="Diary.exe" EntryPoint="Diary.App">
-      <m2:VisualElements DisplayName="Diary" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="Diary" ForegroundText="light" BackgroundColor="#464646">
+      <m2:VisualElements DisplayName="Diary" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="Diary" ForegroundText="light" BackgroundColor="#464646" ToastCapable="true">
         <m2:SplashScreen Image="Assets\SplashScreen.png" />
       </m2:VisualElements>
     </Application>

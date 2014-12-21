@@ -9,6 +9,7 @@ using Windows.ApplicationModel;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
+using Windows.UI.Notifications;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -174,10 +175,20 @@ namespace Diary
             stream.Dispose();
         }
 
+        private void ToasInform(string info)
+        {
+            var toasXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText01);
+            var elements = toasXml.GetElementsByTagName("text");
+            elements[0].AppendChild(toasXml.CreateTextNode(info));
+            var toas = new ToastNotification(toasXml);
+            ToastNotificationManager.CreateToastNotifier().Show(toas);
+        }
+
         //保存
         private void Save_Btn_Click(object sender, RoutedEventArgs e)
         {
             SaveDiary();
+            ToasInform("日记已保存");
         }
         //清空
         private void Clean_Btn_Click(object sender, RoutedEventArgs e)
@@ -193,12 +204,13 @@ namespace Diary
             msg.Commands.Add(new UICommand("Oh,no!"));
             await msg.ShowAsync();
         }
-        //点“确定”时
+        //确定删除
         private void SureHandler(IUICommand command)
         {
             DiaryTitle_Box.Text = "";
             UserDiary_Box.Text = "";
             SaveDiary();
+            ToasInform("日记已删除");
         }
 
         //显示心情标签

@@ -24,7 +24,7 @@
             <RowDefinition Height="80*"/>
         </Grid.RowDefinitions>
         <Grid.Background>
-            <ImageBrush ImageSource="Assets/Images/userBackground.jpg" ></ImageBrush>
+            <ImageBrush ImageSource="Assets/ImagesBackgrounds/userBackground.jpg" ></ImageBrush>
         </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="350*"/>

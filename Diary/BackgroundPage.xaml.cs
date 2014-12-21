@@ -114,12 +114,8 @@ namespace Diary
                 new Uri("ms-appx:///Assets/ImagesBackgrounds/" + Img.Name.ToString() + ".png", UriKind.RelativeOrAbsolute));
             imageName = Img.Name.ToString();
             myGrid.Background = imgb;
+            Frame.Navigate(typeof(DetailPage),imageName);
         }
         public string imageName { get; set; }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(DetailPage));
-        }
     }
 }

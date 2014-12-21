@@ -31,7 +31,8 @@ namespace Diary
         List<UserDiary> AllDiary;
         StorageFolder localFolder;
         string ThisDate;
-        public string DImageNAme = "I_1";
+        public string DImageNAme;
+        private string OldBackground, NewBackground;
 
         public DetailPage()
         {
@@ -51,15 +52,11 @@ namespace Diary
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            ReadUserDiary();
-            if (DImageNAme != null)
+            if(e.Parameter!=null)
             {
-                ImageBrush imgb = new ImageBrush();
-                imgb.ImageSource =
-                new BitmapImage(
-                    new Uri("ms-appx:///Assets/ImagesBackgrounds/" + DImageNAme + ".png", UriKind.RelativeOrAbsolute));
-                myGrid.Background = imgb;
+                NewBackground = e.Parameter.ToString();
             }
+            ReadUserDiary();
         }
 
         //读取日记
@@ -84,15 +81,27 @@ namespace Diary
             {
                 DiaryTitle_Box.Text = "";
                 UserDiary_Box.Text = "";
+                OldBackground = null;
             }
             else
             {
                 DiaryTitle_Box.Text = NowDiary.Title;
                 UserDiary_Box.Text = NowDiary.Text;
                 Tag_Box.SelectedIndex = NowDiary.Mood;
+                OldBackground = NowDiary.Background;
             }
             sr.Dispose();
             stream.Dispose();
+            DImageNAme = NewBackground != null ? NewBackground : OldBackground;
+            NewBackground = null;
+            if (DImageNAme != null)
+            {
+                ImageBrush imgb = new ImageBrush();
+                imgb.ImageSource =
+                new BitmapImage(
+                    new Uri("ms-appx:///Assets/ImagesBackgrounds/" + DImageNAme + ".png", UriKind.RelativeOrAbsolute));
+                myGrid.Background = imgb;
+            }
         }
 
         //跳到修改用户信息界面
@@ -145,7 +154,7 @@ namespace Diary
             if (NowDiary == null || NowDiary.Time == null)
             {
                 //新日记添加到链表中
-                AllDiary.Add(new UserDiary { Time = ThisDate, Title = DiaryTitle_Box.Text, Text = UserDiary_Box.Text, Mood = Tag_Box.SelectedIndex});
+                AllDiary.Add(new UserDiary { Time = ThisDate, Title = DiaryTitle_Box.Text, Text = UserDiary_Box.Text, Mood = Tag_Box.SelectedIndex, Background = DImageNAme});
             }
             //或者保存修改的日记
             else
@@ -153,6 +162,7 @@ namespace Diary
                 NowDiary.Title = DiaryTitle_Box.Text;
                 NowDiary.Text = UserDiary_Box.Text;
                 NowDiary.Mood = Tag_Box.SelectedIndex;
+                NowDiary.Background = DImageNAme;
             }
             var strJson = JsonConvert.SerializeObject(AllDiary);
             //将json字符串写入json文件中

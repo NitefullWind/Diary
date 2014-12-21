@@ -161,7 +161,7 @@
     <Content Include="Assets\ImagesBackgrounds\I_8.png" />
     <Content Include="Assets\ImagesBackgrounds\I_9.png" />
     <Content Include="Assets\Images\LoginBackground.jpg" />
-    <Content Include="Assets\Images\userBackground.jpg" />
+    <Content Include="Assets\ImagesBackgrounds\userBackground.jpg" />
     <Content Include="Assets\Images\一般.jpg" />
     <Content Include="Assets\Images\幸福.jpg" />
     <Content Include="Assets\Images\开心.jpg" />

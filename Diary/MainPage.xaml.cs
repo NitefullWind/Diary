@@ -90,7 +90,7 @@ namespace Diary
             else if (psw_TextBox.Password.Equals(UserInfo.UserPassword.ToString()))
             {
                 wrong_TextBlock.Text = "";
-                Frame.Navigate(typeof(DetailPage), UserInfo);
+                Frame.Navigate(typeof(DetailPage));
             }
             else
             {

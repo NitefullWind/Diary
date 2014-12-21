@@ -46,11 +46,6 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.RowDefinition">
       <RootProperty Name="Height" />
-<<<<<<< HEAD
-      <RootProperty Name="Child" />
-      <RootProperty Name="Margin" />
-=======
->>>>>>> whr
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Image">
       <RootProperty Name="Name" />
@@ -63,16 +58,16 @@
       <RootEvent Name="Tapped" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
-      <RootProperty Name="Content" />
-      <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Margin" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Width" />
       <RootProperty Name="Command" />
       <RootProperty Name="Style" />
+      <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Name" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Height" />
       <RootProperty Name="FontSize" />
+      <RootProperty Name="Content" />
+      <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Background" />
       <RootProperty Name="BorderBrush" />
       <RootEvent Name="Click" />
@@ -98,10 +93,6 @@
       <RootProperty Name="Name" />
       <RootProperty Name="TextAlignment" />
       <RootProperty Name="Foreground" />
-<<<<<<< HEAD
-      <RootProperty Name="TextWrapping" />
-      <RootProperty Name="VerticalAlignment" />
-=======
     </RootType>
     <RootType FullName="Microsoft.Xaml.Tools.DirectUI.ProxyTypes.StaticResourceExtension" />
     <RootType FullName="Diary.BackgroundPage" />
@@ -113,7 +104,6 @@
       <RootProperty Name="Height" />
       <RootProperty Name="Child" />
       <RootProperty Name="Margin" />
->>>>>>> whr
     </RootType>
     <RootType FullName="Windows.UI.Xaml.FrameworkElement">
       <RootProperty Name="VerticalAlignment" />
@@ -148,52 +138,12 @@
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Password" />
       <RootEvent Name="KeyUp" />
-<<<<<<< HEAD
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Button">
-      <RootProperty Name="Name" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="FontSize" />
-      <RootProperty Name="Content" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Background" />
-      <RootProperty Name="BorderBrush" />
-      <RootEvent Name="Click" />
-=======
->>>>>>> whr
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Setter">
       <RootProperty Name="Property" />
       <RootProperty Name="Value" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.Tools.DirectUI.ProxyTypes.NullExtension" />
-<<<<<<< HEAD
-    <RootType FullName="Windows.UI.Xaml.Controls.Grid">
-      <RootProperty Name="Background" />
-      <RootProperty Name="RowDefinitions" />
-      <RootProperty Name="ColumnDefinitions" />
-      <RootProperty Name="Children" />
-      <RootMethod Name="GetColumn" />
-      <RootMethod Name="SetColumn" />
-      <RootMethod Name="GetColumnSpan" />
-      <RootMethod Name="SetColumnSpan" />
-      <RootMethod Name="GetRow" />
-      <RootMethod Name="SetRow" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Media.ImageBrush">
-      <RootProperty Name="ImageSource" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.RowDefinition">
-      <RootProperty Name="Height" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
-      <RootProperty Name="Width" />
-    </RootType>
-=======
->>>>>>> whr
     <RootType FullName="Diary.ChangeUserInfoPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.DatePicker">
       <RootProperty Name="Name" />
@@ -210,20 +160,6 @@
       <RootProperty Name="Background" />
       <RootProperty Name="BorderBrush" />
       <RootProperty Name="VerticalAlignment" />
-<<<<<<< HEAD
-      <RootProperty Name="Width" />
-      <RootProperty Name="SelectedIndex" />
-      <RootProperty Name="TabNavigation" />
-      <RootProperty Name="Items" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Image">
-      <RootProperty Name="Name" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="VerticalAlignment" />
-=======
->>>>>>> whr
       <RootProperty Name="Width" />
       <RootProperty Name="SelectedIndex" />
       <RootProperty Name="TabNavigation" />
@@ -232,13 +168,6 @@
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBoxItem">
       <RootProperty Name="Name" />
       <RootProperty Name="Content" />
-<<<<<<< HEAD
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Data.Binding">
-      <RootProperty Name="ElementName" />
-      <RootProperty Name="Path" />
-=======
->>>>>>> whr
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.CommandBar">
       <RootProperty Name="PrimaryCommands" />

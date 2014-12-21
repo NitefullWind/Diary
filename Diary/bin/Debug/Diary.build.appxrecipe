@@ -113,8 +113,8 @@
     <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\Assets\Images\LoginBackground.jpg">
       <PackagePath>Assets\Images\LoginBackground.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\Assets\Images\userBackground.jpg">
-      <PackagePath>Assets\Images\userBackground.jpg</PackagePath>
+    <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\Assets\ImagesBackgrounds\userBackground.jpg">
+      <PackagePath>Assets\ImagesBackgrounds\userBackground.jpg</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\windowsAPP\Diary\Diary\Assets\Images\一般.jpg">
       <PackagePath>Assets\Images\一般.jpg</PackagePath>

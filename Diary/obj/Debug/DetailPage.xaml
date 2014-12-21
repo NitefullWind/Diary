@@ -24,7 +24,7 @@
             <RowDefinition Height="80*"/>
         </Grid.RowDefinitions>
         <Grid.Background>
-            <ImageBrush ImageSource="Assets/Images/userBackground.jpg" ></ImageBrush>
+            <ImageBrush ImageSource="Assets/ImagesBackgrounds/userBackground.jpg" ></ImageBrush>
         </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="350*"/>
@@ -37,7 +37,7 @@
         <Button x:ConnectionId='3'                        Grid.Column="1" HorizontalAlignment="Right" Grid.Row="3" Content="保存" VerticalAlignment="Top"/>
         <Button x:ConnectionId='4'                         Grid.Column="1" HorizontalAlignment="Right" Grid.Row="3" Content="清空" Margin="0,0,110,0" VerticalAlignment="Top"/>
         <Button x:ConnectionId='5'                          Grid.Column="1" HorizontalAlignment="Right" Grid.Row="3" Content="删除" Margin="0,0,55,0" VerticalAlignment="Top"/>
-        <Button x:ConnectionId='6' Name="BackToday_Btn"                             Content="Today" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment = "Bottom" Height="35" Width="71"/>
+        <Button x:ConnectionId='6' Name="BackToday_Btn"                             Content="Today" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment = "Bottom" Height="35" Width="80"/>
         <ComboBox Name="Tag_Box" Grid.Column="2" HorizontalAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" Width="90" Grid.Row="1" SelectedIndex="0" TabNavigation="Local">
             <ComboBoxItem Name="Tag1" Content="幸福"/>
             <ComboBoxItem Name="Tag2" Content="开心"/>
@@ -52,14 +52,9 @@
     <Page.BottomAppBar>
         <CommandBar>
             <AppBarToggleButton x:ConnectionId='8' Icon="Setting" Label="修改信息"                         />
-<<<<<<< HEAD
-            <CommandBar.SecondaryCommands>
-                <AppBarButton x:ConnectionId='9' Icon="Back" Label="返回登陆"                      />
-=======
             <AppBarToggleButton x:ConnectionId='9' Icon="Pictures"  Label="更换背景"                                 />
             <CommandBar.SecondaryCommands>
                 <AppBarButton x:ConnectionId='10' Icon="Back" Label="返回登陆"                      />
->>>>>>> whr
             </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>
